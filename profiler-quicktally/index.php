@@ -282,12 +282,20 @@ class PFQuickTally {
         echo '<input type="submit" class="button button-primary" name="submit" value="Save Settings" style="margin-bottom: 100px;" />';
         echo "</form>";
         
-        echo 'Last Attempted Recache: ' . date("Y-m-d H:i:s e", $this->settings["xmlfeeds_recached"]);
         echo 'Last Attempted Recache: ' . date("Y-m-d H:i:s e", $this->settings["xmlfeeds_recached"]) . "<br />";
         echo 'Basic XML Last Fetched: ' . date("Y-m-d H:i:s e", $this->settings["basicxmlfeed_fetched"]) . "<br />";
         echo 'Full RAPID XML Last Fetched: ' . date("Y-m-d H:i:s e", $this->settings["fullrapidxmlfeed_fetched"]) . "<br />";
         echo 'Thanks XML Last Fetched: ' . date("Y-m-d H:i:s e", $this->settings["thanksxmlfeed_fetched"]) . "<br />";
 
+        echo "<h2>Shortcode Reference</h2>";
+        echo "<p>These are the available shortcodes shown with their default values.</p>";
+        echo '<ul class="ul-disc">';
+        echo '<li>[sc_dollarsgoal friendly="true" nearestdollar="true" dollarsign="true"]</li>';
+        echo '<li>[sc_dollarscurrent friendly="true" nearestdollar="true" dollarsign="true"]</li>';
+        echo '<li>[sc_dollarsremaining friendly="true" nearestdollar="true" dollarsign="true"]</li>';
+        echo '<li>[sc_dollarspercentage round="0" percentagesign="true"]</li>';
+        echo '<li>[sc_comments random="true" limit="1"]</li>';
+        echo "</ul>";
 
     }
     
