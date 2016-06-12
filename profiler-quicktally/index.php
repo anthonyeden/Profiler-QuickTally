@@ -271,7 +271,7 @@ class PFQuickTally {
         
         echo '</table>';
         
-        echo '<input type="submit" class="button button-primary" name="submit" value="Save Modules" style="margin-bottom: 100px;" />';
+        echo '<input type="submit" class="button button-primary" name="submit" value="Save Settings" style="margin-bottom: 100px;" />';
         echo "</form>";
         
     }
