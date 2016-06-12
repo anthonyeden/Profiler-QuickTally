@@ -3,7 +3,7 @@
 Plugin Name: Profiler QuickTally
 Plugin URI: http://mediarealm.com.au/
 Description: Display your Profiler LIVE Donations Tally on your website with easy to use shortcodes.
-Version: 1.0.1
+Version: 1.0.2
 Author: Media Realm
 Author URI: http://www.mediarealm.com.au/
 */
