@@ -149,12 +149,12 @@ class PFQuickTally {
     }
     
     public function sc_dollarsgoal($atts, $content = null) {
-        $val = $this->numberHandling($this->settings['basicxmlfeed_data']['target']);
+        $val = $this->numberHandling($this->settings['basicxmlfeed_data']['target'], $atts);
         return $val;
     }
     
     public function sc_dollarscurrent($atts, $content = null) {
-        $val = $this->numberHandling($this->settings['basicxmlfeed_data']['main_tally']);
+        $val = $this->numberHandling($this->settings['basicxmlfeed_data']['main_tally'], $atts);
         return $val;
     }
     
@@ -167,7 +167,7 @@ class PFQuickTally {
             $remaining = 0;
         }
         
-        $val = $this->numberHandling($remaining);
+        $val = $this->numberHandling($remaining, $atts);
         return $val;
     }
     
