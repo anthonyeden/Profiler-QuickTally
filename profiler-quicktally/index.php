@@ -42,6 +42,7 @@ class PFQuickTally {
         add_shortcode('pftally_dollarscurrent',       array(&$this, 'sc_dollarscurrent'));
         add_shortcode('pftally_dollarsremaining',     array(&$this, 'sc_dollarsremaining'));
         add_shortcode('pftally_dollarspercentage',    array(&$this, 'sc_dollarspercentage'));
+        add_shortcode('pftally_comments',             array(&$this, 'sc_comments'));
         
         if(is_admin()) {
             // Create settings menu entry
@@ -187,6 +188,48 @@ class PFQuickTally {
         }
         
         return $percentage;
+    }
+
+    public function sc_comments($atts, $content = null) {
+        // Outputs one or more comments as HTML
+        // It'll also accept comments via a global variable $pfquicktally_comments
+        
+        global $pfquicktally_comments;
+
+        $a = shortcode_atts( array(
+            'limit' => '5',
+            'random' => 'true',
+         ), $atts );
+        
+        $comments = array();
+
+        if(isset($pfquicktally_comments) && is_array($pfquicktally_comments)) {
+            $this->settings['thanksxmlfeed_data']['client'] = array_merge($this->settings['thanksxmlfeed_data']['client'], $pfquicktally_comments);
+        }
+
+        foreach($this->settings['thanksxmlfeed_data']['client'] as $key => $val) {
+            if($val['comment'] !== array()) {
+                $text = (String)$val['comment'];
+            }
+            
+            if(isset($text) && !empty($text)) {
+                $html = '<div class="pfcomment"><span class="pfcomment_text">'.$text.'</span> <span class="pfcomment_details">'.$val['name'].', '.ucwords(strtolower($val['suburb'])).'</span></div>' . "\n";
+                if(!in_array($html, $comments)) {
+                    $comments[] = $html;
+                }
+            }
+
+            
+        }
+        
+        if($a['random'] == "true") {
+            shuffle($comments);
+        }
+
+        $comments = array_slice($comments, 0, $a['limit']);
+
+        return implode("", $comments);
+
     }
     
     
