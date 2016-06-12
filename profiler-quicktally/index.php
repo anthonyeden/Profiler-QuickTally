@@ -13,12 +13,15 @@ class PFQuickTally {
     private $settings = array();
     private $settings_optionname = "pfquicktally";
     private $settings_default = array(
+        "xmlfeeds_recached" => 0,
+        
         "basicxmlfeed_url" => "",
         "fullrapidxmlfeed_url" => "",
         "thanksxmlfeed_url" => "",
         "basicxmlfeed_data" => array(),
         "fullrapidxmlfeed_data" => array(),
         "thanksxmlfeed_data" => array(),
+
         "basicxmlfeed_fetched" => 0,
         "fullrapidxmlfeed_fetched" => 0,
         "thanksxmlfeed_fetched" => 0,
@@ -81,36 +84,41 @@ class PFQuickTally {
     
     public function cacheXML() {
         $updated = false;
-        
+
         if(!empty($this->settings['basicxmlfeed_url'])) {
             $basicxml = file_get_contents($this->settings['basicxmlfeed_url']);
-            $this->settings["basicxmlfeed_data"] = json_decode(json_encode((array)simplexml_load_string($basicxml)), 1);
-            $this->settings["basicxmlfeed_fetched"] = time();
-            $updated = true;
+            if($basicxml !== false) {
+                $this->settings["basicxmlfeed_data"] = json_decode(json_encode((array)simplexml_load_string($basicxml)), 1);
+                $this->settings["basicxmlfeed_fetched"] = time();
+                $updated = true;
+            }
         }
         
         if(!empty($this->settings['fullrapidxmlfeed_url'])) {
             $fullrapidxml = file_get_contents($this->settings['fullrapidxmlfeed_url']);
-            $this->settings["fullrapidxmlfeed_data"] = json_decode(json_encode((array)simplexml_load_string($fullrapidxml)), 1);
-            $this->settings["fullrapidxmlfeed_fetched"] = time();
-            $updated = true;
+            if($fullrapidxml !== false) {
+                $this->settings["fullrapidxmlfeed_data"] = json_decode(json_encode((array)simplexml_load_string($fullrapidxml)), 1);
+                $this->settings["fullrapidxmlfeed_fetched"] = time();
+                $updated = true;
+            }
         }
         
         if(!empty($this->settings['thanksxmlfeed_url'])) {
             $thanksxml = file_get_contents($this->settings['thanksxmlfeed_url']);
-            $this->settings["thanksxmlfeed_data"] = json_decode(json_encode((array)simplexml_load_string($thanksxml)), 1);
-            $this->settings["thanksxmlfeed_fetched"] = time();
-            $updated = true;
+            if($thanksxml !== false) {
+                $this->settings["thanksxmlfeed_data"] = json_decode(json_encode((array)simplexml_load_string($thanksxml)), 1);
+                $this->settings["thanksxmlfeed_fetched"] = time();
+                $updated = true;
+            }
         }
-        
-        if($updated == true) {
-            $this->updateSettings();
-        }
+
+        $this->settings["xmlfeeds_recached"] = time();
+        $this->updateSettings();
     }
     
     public function cacheLazy() {
         // Check if we need to recache and then do it
-        if($this->settings['basicxmlfeed_fetched'] <= time() - 70) {
+        if($this->settings['xmlfeeds_recached'] <= time() - 70) {
             $this->cacheXML();
         }
     }
