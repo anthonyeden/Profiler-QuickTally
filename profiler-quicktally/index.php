@@ -283,6 +283,11 @@ class PFQuickTally {
         echo "</form>";
         
         echo 'Last Attempted Recache: ' . date("Y-m-d H:i:s e", $this->settings["xmlfeeds_recached"]);
+        echo 'Last Attempted Recache: ' . date("Y-m-d H:i:s e", $this->settings["xmlfeeds_recached"]) . "<br />";
+        echo 'Basic XML Last Fetched: ' . date("Y-m-d H:i:s e", $this->settings["basicxmlfeed_fetched"]) . "<br />";
+        echo 'Full RAPID XML Last Fetched: ' . date("Y-m-d H:i:s e", $this->settings["fullrapidxmlfeed_fetched"]) . "<br />";
+        echo 'Thanks XML Last Fetched: ' . date("Y-m-d H:i:s e", $this->settings["thanksxmlfeed_fetched"]) . "<br />";
+
 
     }
     
