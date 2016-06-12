@@ -37,8 +37,8 @@ class PFQuickTally {
         // Hook for scheduled caching task
         add_action('pfquicktally_cachexml',           array(&$this, 'cacheXML'));
         
-        // In case wp-cron isn't working, we also attempt to re-cache in the footer
-        add_action('wp_footer',                       array(&$this, 'cacheLazy'));
+        // In case wp-cron isn't working, we also attempt to re-cache in the footer - low priority so everything else loads in first
+        add_action('wp_footer',                       array(&$this, 'cacheLazy'),   1000);
         
         // Setup the various short-codes
         add_shortcode('pftally_dollarsgoal',          array(&$this, 'sc_dollarsgoal'));
