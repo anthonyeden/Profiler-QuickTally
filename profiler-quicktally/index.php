@@ -282,6 +282,8 @@ class PFQuickTally {
         echo '<input type="submit" class="button button-primary" name="submit" value="Save Settings" style="margin-bottom: 100px;" />';
         echo "</form>";
         
+        echo 'Last Attempted Recache: ' . date("Y-m-d H:i:s e", $this->settings["xmlfeeds_recached"]);
+
     }
     
     
