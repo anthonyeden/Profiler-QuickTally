@@ -3,7 +3,7 @@
 Plugin Name: Profiler QuickTally
 Plugin URI: http://mediarealm.com.au/
 Description: Display your Profiler LIVE Donations Tally on your website with easy to use shortcodes.
-Version: 1.0.3
+Version: 1.0.4
 Author: Media Realm
 Author URI: http://www.mediarealm.com.au/
 */
@@ -290,11 +290,11 @@ class PFQuickTally {
         echo "<h2>Shortcode Reference</h2>";
         echo "<p>These are the available shortcodes shown with their default values.</p>";
         echo '<ul class="ul-disc">';
-        echo '<li>[sc_dollarsgoal friendly="true" nearestdollar="true" dollarsign="true"]</li>';
-        echo '<li>[sc_dollarscurrent friendly="true" nearestdollar="true" dollarsign="true"]</li>';
-        echo '<li>[sc_dollarsremaining friendly="true" nearestdollar="true" dollarsign="true"]</li>';
-        echo '<li>[sc_dollarspercentage round="0" percentagesign="true"]</li>';
-        echo '<li>[sc_comments random="true" limit="1"]</li>';
+        echo '<li>[pftally_dollarsgoal friendly="true" nearestdollar="true" dollarsign="true"]</li>';
+        echo '<li>[pftally_dollarscurrent friendly="true" nearestdollar="true" dollarsign="true"]</li>';
+        echo '<li>[pftally_dollarsremaining friendly="true" nearestdollar="true" dollarsign="true"]</li>';
+        echo '<li>[pftally_dollarspercentage round="0" percentagesign="true"]</li>';
+        echo '<li>[pftally_comments random="true" limit="1"]</li>';
         echo "</ul>";
 
     }
