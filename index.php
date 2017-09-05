@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Profiler QuickTally
-Plugin URI: http://mediarealm.com.au/
+Plugin URI: https://mediarealm.com.au/wordpress-plugins/
 Description: Display your Profiler LIVE Donations Tally on your website with easy to use shortcodes.
-Version: 1.0.4
+Version: 1.0.5
 Author: Media Realm
 Author URI: http://www.mediarealm.com.au/
 */
@@ -260,21 +260,21 @@ class PFQuickTally {
             <h1>Profiler QuickTally</h1>
             <h2>Configuration</h2>';
         
-        echo '<table class="cdpapp_module" width="100%">';
+        echo '<table class="profiler_quicktally_config" width="100%">';
         
         echo '<tr><th width="20%">Profiler Basic XML Feed:</th>';
         echo '<td><input name="pf_basicxmlfeed" value="'.$this->settings['basicxmlfeed_url'].'"></td>';
-        echo '<td>e.g. https://prod.profiler.net.au/Profiler/se_pf_DATABASENAME.xml</td>';
+        echo '<td>e.g. https://DATABASENAME.profiler.net.au/Profiler/se_pf_DATABASENAME.xml</td>';
         echo '</tr>';
         
         echo '<tr><th width="20%">Profiler Full RAPID XML Feed:</th>';
         echo '<td><input name="pf_fullrapidxmlfeed" value="'.$this->settings['fullrapidxmlfeed_url'].'"></td>';
-        echo '<td>e.g. https://prod.profiler.net.au/Profiler/rapid_pf_DATABASENAME.xml</td>';
+        echo '<td>e.g. https://DATABASENAME.profiler.net.au/Profiler/rapid_pf_DATABASENAME.xml</td>';
         echo '</tr>';
         
         echo '<tr><th width="20%">Profiler Thanks XML Feed:</th>';
         echo '<td><input name="pf_thanksxmlfeed" value="'.$this->settings['thanksxmlfeed_url'].'"></td>';
-        echo '<td>e.g. https://prod.profiler.net.au/Profiler/se_thanks_pf_DATABASENAME.xml</td>';
+        echo '<td>e.g. https://DATABASENAME.profiler.net.au/Profiler/se_thanks_pf_DATABASENAME.xml</td>';
         echo '</tr>';
         
         echo '</table>';
