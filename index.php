@@ -46,6 +46,7 @@ class PFQuickTally {
         add_shortcode('pftally_dollarsremaining',     array(&$this, 'sc_dollarsremaining'));
         add_shortcode('pftally_dollarspercentage',    array(&$this, 'sc_dollarspercentage'));
         add_shortcode('pftally_comments',             array(&$this, 'sc_comments'));
+        add_shortcode('pftally_tallytext',            array(&$this, 'sc_tallytext'));
         
         if(is_admin()) {
             // Create settings menu entry
@@ -164,6 +165,14 @@ class PFQuickTally {
     public function sc_dollarscurrent($atts, $content = null) {
         $val = $this->numberHandling($this->settings['basicxmlfeed_data']['main_tally'], $atts);
         return $val;
+    }
+	
+    public function sc_tallytext($atts, $content = null) {
+		if(isset($this->settings['basicxmlfeed_data']['tally_text']) && !empty($this->settings['basicxmlfeed_data']['tally_text'])) {
+			return $this->settings['basicxmlfeed_data']['tally_text'];
+		} else {
+			return "";
+		}
     }
     
     public function sc_dollarsremaining($atts, $content = null) {
@@ -295,6 +304,7 @@ class PFQuickTally {
         echo '<li>[pftally_dollarsremaining friendly="true" nearestdollar="true" dollarsign="true"]</li>';
         echo '<li>[pftally_dollarspercentage round="0" percentagesign="true"]</li>';
         echo '<li>[pftally_comments random="true" limit="1"]</li>';
+        echo '<li>[pftally_tallytext]</li>';
         echo "</ul>";
 
     }
