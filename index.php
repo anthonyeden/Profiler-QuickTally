@@ -264,17 +264,17 @@ class PFQuickTally {
         
         echo '<tr><th width="20%">Profiler Basic XML Feed:</th>';
         echo '<td><input name="pf_basicxmlfeed" value="'.$this->settings['basicxmlfeed_url'].'"></td>';
-        echo '<td>e.g. https://DATABASENAME.profiler.net.au/Profiler/se_pf_DATABASENAME.xml</td>';
+        echo '<td>e.g. https://DATABASENAME.profilersystem.com/Profiler/se_pf_DATABASENAME.xml</td>';
         echo '</tr>';
         
         echo '<tr><th width="20%">Profiler Full RAPID XML Feed:</th>';
         echo '<td><input name="pf_fullrapidxmlfeed" value="'.$this->settings['fullrapidxmlfeed_url'].'"></td>';
-        echo '<td>e.g. https://DATABASENAME.profiler.net.au/Profiler/rapid_pf_DATABASENAME.xml</td>';
+        echo '<td>e.g. https://DATABASENAME.profilersystem.com/Profiler/rapid_pf_DATABASENAME.xml</td>';
         echo '</tr>';
         
         echo '<tr><th width="20%">Profiler Thanks XML Feed:</th>';
         echo '<td><input name="pf_thanksxmlfeed" value="'.$this->settings['thanksxmlfeed_url'].'"></td>';
-        echo '<td>e.g. https://DATABASENAME.profiler.net.au/Profiler/se_thanks_pf_DATABASENAME.xml</td>';
+        echo '<td>e.g. https://DATABASENAME.profilersystem.com/Profiler/se_thanks_pf_DATABASENAME.xml</td>';
         echo '</tr>';
         
         echo '</table>';
